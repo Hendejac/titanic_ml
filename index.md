@@ -13,6 +13,17 @@ Here, I will go through the process I used to clean the data and use the Gradien
 While several machine learning (ML) classifiers were deployed (Random Forest, Multi-layer Perceptron, and Support Vector Machine) in this small project the Gradient Boosting Classifier appeared to provide the best results.
 These result may be revised in the future, but the point of here is to show a non-chemistry example of machine learning work on my resume.
 
+# Included Jupyter Notebooks 
+
+**titanic_ml.ipynb**:
+*The initial work flow and testing notebook for the different classifiers*
+
+**titanic_ml_age_filling_regressor_and_data_remaker.ipynb**:
+*This is the notebook that was used to clean and make the final data used.*
+
+**titanic_ml_clf_final**:
+*This is the notebook where the final data was used and the Gradient Boosting Classifier was optimizied.*
+
 # The Titanic Passenger Dataset 
 
 Below are the features that were provide from the Kaggle dataset. 
@@ -106,6 +117,17 @@ Surprisingly this information actually hindered the success rate and was not use
 Where this information was helpful was in the processes on filling in the missing ages. 
 Using the OHE of the titles for the GBR prediction of the ages improved the prediction by reducing the MAE of 9.9 years to 8.2 years.
 Thus the age prediction using the OHE title data was used in the final GBC.
+
+# The Final Data 
+
+After all missing data point were filled in and all categorical values were converted to numerical values the final dataset can be seen here.
+
+|  |PassengerId |	Survived |	Pclass |	Sex |	Age	      | SibSp |	Parch |	Fare    |	Embarked |
+|-:|-----------:|---------:|-------:|----:|----------:|------:|------:|--------:|---------:|
+|0	| 1	         | 0	       |  3	    | 1.0 |	22.000000	|  1	   | 0     |	7.2500  |	  2.0    |
+|1	| 2	         | 1	       |  1	    | 0.0 |	38.000000	|  1	   | 0	    | 71.2833 |	  0.0    |
+|2	| 3	         | 1	       |  3	    | 0.0	| 26.000000	|  0	   | 0	    | 7.9250  |   2.0	   |
+
 
 # Testing Different Classifiers and Hyperparameter Optimization
 
