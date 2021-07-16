@@ -9,7 +9,7 @@
 # Introduction 
 
 Using the [Titanic - Machine Learning from Disaster](https://www.kaggle.com/c/titanic/data) dataset from [Kaggle](https://www.kaggle.com/), I have built scripts that uses a variety of machine learning algorithms to predict the survival of passengers from the Titanic tragedy.
-Here, I will go through the process I used to clean the data and use the Gradient Boosting Classifier to obtain a prediction survival rate of 85%.
+Here, I will go through the process I used to clean the data and use the Gradient Boosting Classifier (GBC) to obtain **a prediction survival rate of 85%**.
 While several machine learning (ML) classifiers were deployed (Random Forest, Multi-layer Perceptron, and Support Vector Machine) in this small project the Gradient Boosting Classifier appeared to provide the best results.
 These result may be revised in the future, but the point of here is to show a non-chemistry example of machine learning work on my resume.
 
@@ -87,14 +87,28 @@ This resulted in all classifiers performing poorly compared to the other two opt
 
 The mean age of the passengers was ~30 +/- 15 years. 
 This is not a great estimate of the age, but atleast it doesn't scew the age one way or another, and is straight forward to implement with pandas fillna function. 
-This actually resulted in pretty fair predictions ranging from 79-83%.
+This actually resulted in pretty fair **prediction success rate of 85%**.
 
 ##### Option 3
 
 Using the Gradient Boosting Regressor (GBR) I tried to predict the missing ages. 
-The GBR was able to predict the age with a mean average error (MAE) of 8.3 years when simply using the mean age provides a MAE of 12.6 years. 
-So there is a little improvement here. 
-However, this didn't really help the results of the classifier and **produced similar results to Option 2**.
+The GBR was able to predict the age with a mean average error (MAE) of 8.3 years when simply using the mean age provides a MAE of 12.6 years.
+This only improved the results by a little bit resulting in a **prediction success rate of %86**.
+So for simplicity option two is probably the best, but a little improvement is still a good thing.
+
+### Adding Title Data from the "Name" Column 
+
+I was unsure at first how to use the name column, but relized that the title (Mr., Mrs. Miss., Master. Rev., ect...) of each person said a little something about them.
+In total there were really about 15 titles, some unique titles like "Mlle./Mme. (meaning Mademoiselle)" were converted Miss., because they were rare and meant the same thing.
+This could be done for some of the other rare titles, and might be a place of improvement for further iterations of the process.
+Each of these titles were converted into One-hot Encoding (OHE), and used in the prediction. 
+Surprisingly this information actually hindered the success rate and was not used directly in the final GBC model.
+Where this information was helpful was in the processes on filling in the missing ages. 
+Using the OHE of the titles for the GBR prediction of the ages improved the prediction by reducing the MAE of 9.9 years to 8.2 years.
+Thus the age prediction using the OHE title data was used in the final GBC.
+
+
+
 
 
 
