@@ -1,1 +1,11 @@
+  
+theme: jekyll-theme-minimal
+title: <a href="https://hendejac.github.io/titanic_ml/">Titanic Machine Learning</a>
+logo: "Titanic_Header.jpg" # your photo (or logo) here
+description: > # your text below (remove <br> elements if you don't need line breaks)
+  A machine learning project predicting the survival of the passengers on the Titanic.
+  <br>
+  <br>
+  <a href="https://hendejac.github.io/">Return to Portfolio</a>
+  <br>
 theme: jekyll-theme-minimal
