@@ -9,7 +9,7 @@
 # Introduction 
 
 Using the [Titanic - Machine Learning from Disaster](https://www.kaggle.com/c/titanic/data) dataset from [Kaggle](https://www.kaggle.com/), I have built scripts that use a variety of machine learning algorithms from [sklearn](https://scikit-learn.org/stable/) in Python to predict the survival of passengers from the Titanic tragedy.
-Here, I will go through the process I used to clean the data and used the Gradient Boosting Classifier (GBC) to obtain **a prediction survival rate of 87%**.
+Here, I will go through the process I used to clean the data and used the Gradient Boosting Classifier (GBC) to obtain **a prediction success rate of 87%**.
 While several machine learning (ML) classifiers were deployed (Random Forest, Multi-layer Perceptron, and Support Vector Machines) in this small project the Gradient Boosting Classifier appeared to provide the best results.
 These result may be revisited in the future to improve the prediction ability.
 
