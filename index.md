@@ -122,11 +122,14 @@ Thus the age prediction using the OHE title data was used in the final GBC.
 
 After all missing data point were filled in and all categorical values were converted to numerical values the final dataset can be seen here.
 
-|  |PassengerId |	Survived |	Pclass |	Sex |	Age	      | SibSp |	Parch |	Fare    |	Embarked |
-|-:|-----------:|---------:|-------:|----:|----------:|------:|------:|--------:|---------:|
-|0	| 1	         | 0	       |  3	    | 1.0 |	22.000000	|  1	   | 0     |	7.2500  |	  2.0    |
-|1	| 2	         | 1	       |  1	    | 0.0 |	38.000000	|  1	   | 0	    | 71.2833 |	  0.0    |
-|2	| 3	         | 1	       |  3	    | 0.0	| 26.000000	|  0	   | 0	    | 7.9250  |   2.0	   |
+|   |PassengerId |	Survived |	Pclass |	Sex |	Age	      | SibSp |	Parch |	Fare    |	Embarked |
+|--:|-----------:|---------:|-------:|----:|----------:|------:|------:|--------:|---------:|
+|0	 | 1	         | 0	       |  3	    | 1.0 |	22.000000	|  1	   | 0     |	7.2500  |	  2.0    |
+|1	 | 2	         | 1	       |  1	    | 0.0 |	38.000000	|  1	   | 0	    | 71.2833 |	  0.0    |
+|2	 | 3	         | 1	       |  3	    | 0.0	| 26.000000	|  0	   | 0	    | 7.9250  |   2.0	   |
+|...|   ...      |  ...     | ...    | ... | ...       | ...   |  ...  | ...     |  ...     |
+|887|	890	       | 1	       | 1	     | 1.0	| 26.000000	|  0	   | 0	    | 30.0000	|   0.0    |
+|888|	891	       | 0	       | 3	     | 1.0	| 32.000000	|  0	   | 0	    | 7.7500	 |   1.0    |
 
 
 # Testing Different Classifiers and Hyperparameter Optimization
