@@ -9,7 +9,7 @@
 # Introduction 
 
 Using the [Titanic - Machine Learning from Disaster](https://www.kaggle.com/c/titanic/data) dataset from [Kaggle](https://www.kaggle.com/), I have built scripts that uses a variety of machine learning algorithms to predict the survival of passengers from the Titanic tragedy.
-Here, I will go through the process I used to clean the data and use the Gradient Boosting Classifier (GBC) to obtain **a prediction survival rate of 85%**.
+Here, I will go through the process I used to clean the data and use the Gradient Boosting Classifier (GBC) to obtain **a prediction survival rate of 87%**.
 While several machine learning (ML) classifiers were deployed (Random Forest, Multi-layer Perceptron, and Support Vector Machine) in this small project the Gradient Boosting Classifier appeared to provide the best results.
 These result may be revised in the future, but the point of here is to show a non-chemistry example of machine learning work on my resume.
 
@@ -93,7 +93,7 @@ This actually resulted in pretty fair **prediction success rate of 85%**.
 
 Using the Gradient Boosting Regressor (GBR) I tried to predict the missing ages. 
 The GBR was able to predict the age with a mean average error (MAE) of 8.3 years when simply using the mean age provides a MAE of 12.6 years.
-This only improved the results by a little bit resulting in a **prediction success rate of %86**.
+This only improved the results by a little bit resulting in a **prediction success rate of 85-86%**.
 So for simplicity option two is probably the best, but a little improvement is still a good thing.
 
 ### Adding Title Data from the "Name" Column 
@@ -107,6 +107,15 @@ Where this information was helpful was in the processes on filling in the missin
 Using the OHE of the titles for the GBR prediction of the ages improved the prediction by reducing the MAE of 9.9 years to 8.2 years.
 Thus the age prediction using the OHE title data was used in the final GBC.
 
+# Testing Different Classifiers and Hyperparameter Optimization
+
+In total I tested four different classifiers: the Random Forest classifier, a Neural Network Classifier (Multi-layer Perceptron classifier), a Support Vector Machine classifier, and the Gradient Boosting Classifier. 
+I really only manually played around with these classifiers and found that the GBC provided the best results (80-83% sucess rate, hyperparameters not optimized) compared to the others (79-81% success rate, hyperparameters not optimized). 
+Overall, the different classifiers still performed pretty well with very little tweaking of the hyperparameters, but the GBC appeared to work just a bit better. 
+Surely, more time spent with the other classifier would have likely boosted there performance.
+
+Having chosen the GBC I wrote a short function to test a variety of different hyperparameters to determine the best inputs to use. 
+Once these hyperparameters were elucidated and with the data cleaned up, the resulting **Titantic passenger prediction success rate was 87%**. 
 
 
 
