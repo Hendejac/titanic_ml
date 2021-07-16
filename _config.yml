@@ -2,7 +2,7 @@
 theme: jekyll-theme-minimal
 title: <a href="https://hendejac.github.io/titanic_ml/">Titanic Machine Learning</a>
 description: > # your text below (remove <br> elements if you don't need line breaks)
-  A machine learning project predicting the survival of passengers on the Titanic.
+ A short machine-learning example.
   <br>
   <br>
   <a href="https://hendejac.github.io/">Return to Portfolio</a>
