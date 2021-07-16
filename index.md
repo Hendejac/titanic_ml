@@ -109,18 +109,19 @@ So for simplicity option two is probably the best, but a little improvement is s
 
 ### Adding Title Data from the "Name" Column 
 
-I was unsure at first how to use the name column, but relized that the title (Mr., Mrs. Miss., Master. Rev., ect...) of each person said a little something about them.
+I was unsure at first how to use the name column, but realized that the title (Mr., Mrs. Miss., Master. Rev., ect...) of each person says a little something about them.
 In total there were really about 15 titles, some unique titles like "Mlle./Mme. (meaning Mademoiselle)" were converted to Miss., because they were rare and meant the same thing.
 This could be done for some of the other rare titles, and might be a place of improvement for further iterations of the process.
 Each of these titles were converted into One-hot Encoding (OHE), and used in the prediction. 
-Surprisingly this information actually hindered the success rate and was not used directly in the final GBC model.
+Surprisingly this information actually hindered the success rate and was not used directly used in the final GBC model.
 Where this information was helpful was in the processes of predicting and filling in the missing ages. 
 Using the OHE of the titles for the GBR prediction of the ages improved the prediction by reducing the MAE of 9.9 years to 8.2 years.
 The ages predicted by the GBR using the OHE title data was used in the final GBC model.
 
 # The Final Data 
 
-After all missing data point were filled in and all categorical values were converted to numerical values the final dataset can be seen here.
+The final data set can be seen below. 
+Here, all the categorical data has been converted to numerical values and all missing data has been added or those row/columns have been removed.
 
 |   |PassengerId |	Survived |	Pclass |	Sex |	Age	      | SibSp |	Parch |	Fare    |	Embarked |
 |--:|-----------:|---------:|-------:|----:|----------:|------:|------:|--------:|---------:|
