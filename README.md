@@ -137,7 +137,7 @@ After all missing data point were filled in and all categorical values were conv
 In total I tested four different classifiers: the Random Forest classifier, a Neural Network Classifier (Multi-layer Perceptron classifier), a Support Vector Machine classifier, and the Gradient Boosting Classifier. 
 I really only manually played around with these classifiers and found that the GBC provided the best results (80-83% sucess rate, hyperparameters not optimized) compared to the others (79-81% success rate, hyperparameters not optimized). 
 Overall, the different classifiers still performed pretty well with very little tweaking of the hyperparameters, but the GBC appeared to work just a bit better. 
-Surely, more time spent with the other classifier would have likely boosted there performance.
+Surely, more time spent with the other classifier would have likely boosted their performance.
 
 Having chosen the GBC I wrote a short function to test a variety of different hyperparameters to determine the best inputs to use. 
 Once these hyperparameters were elucidated and with the data cleaned up, the resulting **Titantic passenger survival prediction success rate was 87%**. 
