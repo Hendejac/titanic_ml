@@ -9,8 +9,8 @@
 # Introduction 
 
 Using the [Titanic - Machine Learning from Disaster](https://www.kaggle.com/c/titanic/data) dataset from [Kaggle](https://www.kaggle.com/), I have built scripts that use a variety of machine learning algorithms from [sklearn](https://scikit-learn.org/stable/) in Python to predict the survival of passengers from the Titanic tragedy.
-Here, I will go through the process I used to clean the data and use the Gradient Boosting Classifier (GBC) to obtain **a prediction survival rate of 87%**.
-While several machine learning (ML) classifiers were deployed (Random Forest, Multi-layer Perceptron, and Support Vector Machine) in this small project the Gradient Boosting Classifier appeared to provide the best results.
+Here, I will go through the process I used to clean the data and used the Gradient Boosting Classifier (GBC) to obtain **a prediction survival rate of 87%**.
+While several machine learning (ML) classifiers were deployed (Random Forest, Multi-layer Perceptron, and Support Vector Machines) in this small project the Gradient Boosting Classifier appeared to provide the best results.
 These result may be revisited in the future to improve the prediction ability.
 
 # Included Jupyter Notebooks 
@@ -19,14 +19,14 @@ These result may be revisited in the future to improve the prediction ability.
 *The initial work flow and testing notebook for the different classifiers*
 
 **titanic_ml_age_filling_regressor_and_data_remaker.ipynb**:
-*This is the notebook that was used to clean and make the final data used.*
+*This is the notebook that was used to clean and make the final dataset used.*
 
 **titanic_ml_clf_final**:
 *This is the notebook where the final data was used and the Gradient Boosting Classifier was optimizied.*
 
 # The Titanic Passenger Dataset 
 
-Below are the features that were provide from the Kaggle dataset. 
+Below are the features that were provided from the Kaggle dataset. 
 In total the training set had 891 passengers to train and test the different ML models.
 
 
@@ -43,10 +43,10 @@ In total the training set had 891 passengers to train and test the different ML 
 |  cabin   | Cabin Number   |  |
 | embarked | Port of Embarkation | C = Cherbourg, Q = Queenstown, S = Southampton |
 
-However, not all passengers have all of the information. 
-For instance, 177 passangers are missing age values, roughly 80% of the passengers are missing there cabin information, and 2 passengers are missing what port they embarked from.
+However, some passengers have missing information. 
+For instance, 177 passengers are missing age values, roughly 80% of the passengers are missing there cabin information, and 2 passengers are missing what port they embarked from.
 Additionally some of this information is difficult to convert into meaningful numeric values such as passenger names and ticket numbers.
-So even though a rather clean dataset was provide work still need to be done to furth clean and extract additional infromation from the dataset at hand. 
+So even though a rather clean dataset was provided, work still needs to be done to further clean and extract additional infromation from the dataset at hand. 
 
 |    | Column      |  Non-Null Count | Dtype  | 
 |---:| -----------:|----------------:|-------:|
@@ -63,22 +63,22 @@ So even though a rather clean dataset was provide work still need to be done to 
 | 10 | Cabin       | 204 non-null    | object |
 | 11 | Embarked    | 889 non-null    | object |
 
-# Cleaning Data and Filling in Missing Values
+# Cleaning the Data and Filling in Missing Values
 
 ### Missing Cabin Data
 
-These data is a little tricky to work with and might need to be revisted, but **since only ~%20 of the passengers have this data the column was simply dropped**. 
-Some passengers have multiple cabins and this data could possibly extended to some the other passengers, such as passengers siblings/parents, but proper assignment of the rooms appears challenging and there would still be missing information. 
+These data is a little tricky to work with and might need to be revisted, **since only ~%20 of the passengers have this data the column was simply dropped**. 
+Some passengers have multiple cabins and this data could possibly by extended to some of the other passengers, such as the passengers siblings/parents, but proper assignment of the rooms appears challenging and there would still be missing information. 
 Additionally, this information doesn't appear to be connected to the Ticket Number, so information from the Ticket Number doesn't appear to help fill in missing cabin numbers.
 
 ### Missing Port of Embarkation Data
 
-Only 2 passengers are missing this information and so those rows were dropped. 
+Only 2 passengers are missing this information and so those rows (passengers) were dropped. 
 
 ### Missing Age Data
 
 In total 177 of the passengers were missing their ages values. 
-Doing a quick glance at the correlation between age and survival shows essentially no correlation, but I couldn't help remembering in the Titanic movie that the women and children were trying to be loaded onto the lifeboats first. 
+Doing a quick glance at the correlation between age and survival shows essentially no correlation, but I couldn't help remembering in the Titanic movie where the women and children were trying to be loaded onto the lifeboats first. 
 So this left me with a few options, and the opportunity to play with the data. 
 
 #### Options
@@ -87,36 +87,36 @@ So this left me with a few options, and the opportunity to play with the data.
 
 2.) Fill in all missing ages with the mean age of the passengers. 
 
-3.) Use a ML regression to fill in the missing ages. 
+3.) Use a ML regression to predict and fill in the missing ages. 
 
 ##### Option 1
 
-This is not ideal as removing the 177 passengers with missing ages removes a lot of other data.
+This is not ideal as removing the 177 passengers with missing ages removes a lot of data.
 This resulted in all classifiers performing poorly compared to the other two options.
 
 ##### Option 2
 
 The mean age of the passengers was ~30 +/- 15 years. 
-This is not a great estimate of the age, but atleast it doesn't scew the age one way or another, and is straight forward to implement with pandas fillna function. 
-This actually resulted in pretty fair **prediction success rate of 85%**.
+This is not a great estimate of the age, but atleast it doesn't scew the age one way or another, and is straight forward to implement with the pandas dataframe fillna function. 
+This resulted in pretty good **prediction success rate of 85%**.
 
 ##### Option 3
 
 Using the Gradient Boosting Regressor (GBR) I tried to predict the missing ages. 
-The GBR was able to predict the age with a mean average error (MAE) of 8.3 years when simply using the mean age provides a MAE of 12.6 years.
+The GBR was able to predict the age with a mean average error (MAE) of 8.2 years when simply using the mean age provides a MAE of 12.6 years.
 This only improved the results by a little bit resulting in a **prediction success rate of 85-86%**.
 So for simplicity option two is probably the best, but a little improvement is still a good thing.
 
 ### Adding Title Data from the "Name" Column 
 
 I was unsure at first how to use the name column, but relized that the title (Mr., Mrs. Miss., Master. Rev., ect...) of each person said a little something about them.
-In total there were really about 15 titles, some unique titles like "Mlle./Mme. (meaning Mademoiselle)" were converted Miss., because they were rare and meant the same thing.
+In total there were really about 15 titles, some unique titles like "Mlle./Mme. (meaning Mademoiselle)" were converted to Miss., because they were rare and meant the same thing.
 This could be done for some of the other rare titles, and might be a place of improvement for further iterations of the process.
 Each of these titles were converted into One-hot Encoding (OHE), and used in the prediction. 
 Surprisingly this information actually hindered the success rate and was not used directly in the final GBC model.
-Where this information was helpful was in the processes on filling in the missing ages. 
+Where this information was helpful was in the processes of predicting and filling in the missing ages. 
 Using the OHE of the titles for the GBR prediction of the ages improved the prediction by reducing the MAE of 9.9 years to 8.2 years.
-Thus the age prediction using the OHE title data was used in the final GBC.
+The ages predicted by the GBR using the OHE title data was used in the final GBC model.
 
 # The Final Data 
 
