@@ -140,7 +140,7 @@ Overall, the different classifiers still performed pretty well with very little 
 Surely, more time spent with the other classifier would have likely boosted there performance.
 
 Having chosen the GBC I wrote a short function to test a variety of different hyperparameters to determine the best inputs to use. 
-Once these hyperparameters were elucidated and with the data cleaned up, the resulting **Titantic passenger prediction success rate was 87%**. 
+Once these hyperparameters were elucidated and with the data cleaned up, the resulting **Titantic passenger survival prediction success rate was 87%**. 
 
 
 
