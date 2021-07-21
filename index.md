@@ -17,13 +17,13 @@ These results may be revisited in the future to improve the prediction ability.
 # Included Jupyter Notebooks 
 
 **titanic_ml.ipynb**:
-*The initial work flow and testing notebook for the different classifiers*
+*The initial workflow and testing notebook for the different classifiers*
 
 **titanic_ml_age_filling_regressor_and_data_remaker.ipynb**:
 *This is the notebook that was used to clean and make the final dataset used.*
 
 **titanic_ml_clf_final**:
-*This is the notebook where the final data was used and the Gradient Boosting Classifier was optimizied.*
+*This is the notebook where the final data was used and the Gradient Boosting Classifier was optimized.*
 
 # The Titanic Passenger Dataset 
 
@@ -45,8 +45,8 @@ In total the training set had 891 passengers to train and test the different ML 
 | embarked | Port of Embarkation | C = Cherbourg, Q = Queenstown, S = Southampton |
 
 However, some passengers have missing information. 
-For instance, 177 passengers are missing age values, roughly 80% of the passengers are missing there cabin information, and 2 passengers are missing what port they embarked from.
-Additionally some of this information is difficult to convert into meaningful numeric values such as passenger names and ticket numbers.
+For instance, 177 passengers are missing age values, roughly 80% of the passengers are missing cabin information, and 2 passengers are missing what port they embarked from.
+Additionally, some of this information is difficult to convert into meaningful numeric values such as passenger names and ticket numbers.
 So even though a rather clean dataset was provided, work still needs to be done to further clean and extract additional infromation from the dataset at hand. 
 
 |    | Column      |  Non-Null Count | Dtype  | 
@@ -68,8 +68,8 @@ So even though a rather clean dataset was provided, work still needs to be done 
 
 ### Missing Cabin Data
 
-These data is a little tricky to work with and might need to be revisted, **since only ~%20 of the passengers have this data the column was simply dropped**. 
-Some passengers have multiple cabins and this data could possibly by extended to some of the other passengers, such as the passengers siblings/parents, but proper assignment of the rooms appears challenging and there would still be missing information. 
+This data is a little tricky to work with and might need to be revisted, **since only ~%20 of the passengers have this data the column was simply dropped**. 
+Some passengers have multiple cabins and this data could possibly by extended to other passengers, such as the passengers siblings/parents, but proper assignment of the rooms appears challenging and there would still be missing information. 
 Additionally, this information doesn't appear to be connected to the Ticket Number, so information from the Ticket Number doesn't appear to help fill in missing cabin numbers.
 
 ### Missing Port of Embarkation Data
@@ -79,7 +79,7 @@ Only 2 passengers are missing this information and so those rows (passengers) we
 ### Missing Age Data
 
 In total 177 of the passengers were missing their ages values. 
-Doing a quick glance at the correlation between age and survival shows essentially no correlation, but I couldn't help remembering in the Titanic movie where the women and children were trying to be loaded onto the lifeboats first. 
+Doing a quick glance at the correlation between age and survival shows essentially no correlation, but I remembered in the Titanic movie there was an attempt to load the women and children onto the lifeboats first. 
 So this left me with a few options, and the opportunity to play with the data. 
 
 #### Options
@@ -104,9 +104,9 @@ This resulted in pretty good **prediction success rate of 85%**.
 ##### Option 3
 
 Using the Gradient Boosting Regressor (GBR) I tried to predict the missing ages. 
-The GBR was able to predict the age with a mean average error (MAE) of 8.2 years when simply using the mean age provides a MAE of 12.6 years.
-This only improved the results by a little bit resulting in a **prediction success rate of 85-86%**.
-So for simplicity option two is probably the best, but a little improvement is still a good thing.
+The GBR was able to predict the age with a mean average error (MAE) of 8.2 years while simply using the mean age provides a MAE of 12.6 years.
+This only marginally improved the results giving a **prediction success rate of 85-86%**.
+So for simplicity option two is likely the best.
 
 ### Adding Title Data from the "Name" Column 
 
@@ -114,15 +114,15 @@ I was unsure at first how to use the name column, but realized that the title (M
 In total there were really about 15 titles, some unique titles like "Mlle./Mme. (meaning Mademoiselle)" were converted to Miss., because they were rare and meant the same thing.
 This could be done for some of the other rare titles, and might be a place of improvement for further iterations of the process.
 Each of these titles were converted into One-hot Encoding (OHE), and used in the prediction. 
-Surprisingly this information actually hindered the success rate and was not used directly used in the final GBC model.
-Where this information was helpful was in the processes of predicting and filling in the missing ages. 
+Surprisingly, this information actually hindered the success rate and was not used directly used in the final GBC model.
+This information, however, was helpful was in the processes of predicting and filling in the missing ages. 
 Using the OHE of the titles for the GBR prediction of the ages improved the prediction by reducing the MAE of 9.9 years to 8.2 years.
 The ages predicted by the GBR using the OHE title data was used in the final GBC model.
 
 # The Final Data 
 
 The final data set can be seen below. 
-Here, all the categorical data has been converted to numerical values and all missing data has been added or those row/columns have been removed.
+Here, all the categorical data have been converted to numerical values and all missing data have been added or those rows/columns have been removed.
 
 |   |PassengerId |	Survived |	Pclass |	Sex |	Age	      | SibSp |	Parch |	Fare    |	Embarked |
 |--:|-----------:|---------:|-------:|----:|----------:|------:|------:|--------:|---------:|
